@@ -1,0 +1,134 @@
+creating full stack ecommerce website
+
+create folder inside this create two folders 
+frontend 
+backend
+
+
+frontend
+install react and tailwindcss
+install reactr router dome
+install redux toolkit
+npm i react-toastify
+
+backend
+npm i nodemon express cors dotenv mongoose (run this command)
+then create index.js file
+
+
+in pckjson make this changes
+
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+
+
+
+
+wtrite the basic code in index.js
+const express = require('express')
+const cors = require('cors')
+require('dotenv').config()
+const connectDB = require('./config/db')
+const router = require('./routes')
+
+const app = express()
+app.use(cors())
+
+app.use("/api",router)
+
+const PORT = 5000 || process.env.PORT
+
+connectDB().then(()=>{
+    app.listen(PORT,()=>{
+        console.log("connnect to DB")
+        console.log("Server is running "+PORT)
+    })
+})
+
+
+
+
+run server
+compile file node index.js
+Then if we use this command for running server we always need to restart our server for any small change 
+(npm start)
+
+this is right command (npm run dev)
+
+
+
+
+create config folder inside this
+create db.js file
+
+
+write this code in this file for connect
+const mongoose = require("mongoose");
+
+async function connectDB() {
+    try {
+        await mongoose.connect(process.env.MONGODB_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log('Connected to DB');
+    } catch (err) {
+        console.error('Error connecting to DB:', err);
+    }
+}
+
+module.exports = connectDB;
+
+
+
+now create .env file
+
+
+
+
+search mongodb 
+click on view all organiztion from navbar dropdown
+create organization
+click on organiation
+in this create new project
+now click on create clustrer (select advance configuration option for cluster)
+slect free plan then click create
+after thaht click on quick start 
+then add this ip 
+0.0.0.0
+copy cluster from connect option
+then paste this cluster in .env file
+
+MONGODB_URI = mongodb+srv://NewUser:<db_password>@cosmetics-ecommerce-sto.yhss3.mongodb.net/?retryWrites=true&w=majority&appName=Cosmetics-ecommerce-store
+
+
+add data base name betwwen them from here
+.net/namehere
+
+
+
+
+backend installation
+
+npm i bcryptjs
+npm i jsonwebtoken
+npm i cookie-parser
+
+
+redux setup
+npm install @reduxjs/toolkit react-redux
+
+
+frontend
+npm i moment
+
+Uses of moment in a React App:
+Date Formatting – Convert dates into readable formats.
+Parsing Dates – Convert various date formats to a standard format.
+Relative Time – Display time ago (e.g., "5 minutes ago").
+Date Arithmetic – Add/subtract days, months, or years.
+Time Zone Handling – Manage different time zones.
+Custom Date Comparisons – Check if a date is before/after another date
