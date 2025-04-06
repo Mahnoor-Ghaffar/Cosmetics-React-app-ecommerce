@@ -37,7 +37,7 @@ const Home = () => {
       };
 
   return (
-    <main className="max-w-[1440px]">
+    <main className="">
     <ScrollbarLinks />
     <HeroSection />
     <CategoryList />
