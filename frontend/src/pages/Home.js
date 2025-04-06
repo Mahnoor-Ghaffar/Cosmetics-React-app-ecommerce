@@ -16,7 +16,7 @@ const Home = () => {
       // Fetch products from the Makeup API
       useEffect(() => {
         const fetchProducts = async () => {
-          const response = await fetch("http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline");
+          const response = await fetch("https://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline");
           const data = await response.json();
           setProducts(data);
         };
