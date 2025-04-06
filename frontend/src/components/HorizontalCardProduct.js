@@ -168,13 +168,13 @@ const HorizontalCardProduct = ({ category, heading }) => {
             >
               <div className='bg-slate-200 h-full p-4 min-w-[120px] md:min-w-[145px] animate-pulse'>Product card</div>
               <div className='p-4 grid w-full gap-2'>
-                <h2 className='font-medium text-base md:text-lg bg-slate-200 animate-pulse p-1 rounded-full'>Product card</h2>
-                <p className='capitalize text-slate-500 p-1 bg-slate-200 animate-pulse rounded-full'></p>
+                <h2 className='font-medium text-base md:text-lg bg-slate-200 animate-pulse p-1 rounded-full'>Product</h2>
+                <p className='capitalize text-slate-500 p-1 bg-slate-200 animate-pulse rounded-full'>product</p>
                 <div className='flex gap-3 w-full'>
-                  <p className='text-red-600 font-medium p-1 bg-slate-200 w-full animate-pulse rounded-full'></p>
-                  <p className='text-slate-500 line-through p-1 bg-slate-200 w-full animate-pulse rounded-full'></p>
+                  <p className='text-red-600 font-medium p-1 bg-slate-200 w-full animate-pulse rounded-full'>product</p>
+                  <p className='text-slate-500 line-through p-1 bg-slate-200 w-full animate-pulse rounded-full'>product</p>
                 </div>
-                <button className='text-sm text-white px-3 py-0.5 rounded-full w-full bg-slate-200 animate-pulse'></button>
+                <button className='text-sm text-white px-3 py-0.5 rounded-full w-full bg-slate-200 animate-pulse'>product</button>
               </div>
             </div>
           ))
