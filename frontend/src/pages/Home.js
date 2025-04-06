@@ -37,7 +37,7 @@ const Home = () => {
       };
 
   return (
-    <main className="">
+    <main className="w-full">
     <ScrollbarLinks />
     <HeroSection />
     <CategoryList />
