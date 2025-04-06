@@ -13,7 +13,7 @@ import { toast } from 'react-toastify';
 import SummaryApi from '../common';
 import { setUserDetails } from '../store/userSlice';
 import { useRef } from "react";
-import ROLE from '../common/role';
+// import ROLE from '../common/role';
 
 
 const Navbar = () => {
@@ -78,9 +78,9 @@ const Navbar = () => {
     setIsUserDropdownOpen(false); // Close the popup
   };
 
-  const handleLoginClick = (event) => {
-    event.stopPropagation(); // Stop event propagation to prevent parent div's onClick from interfering
-  };
+  // const handleLoginClick = (event) => {
+  //   event.stopPropagation(); // Stop event propagation to prevent parent div's onClick from interfering
+  // };
 
 
   return (

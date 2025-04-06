@@ -1,4 +1,6 @@
-const backendDomin = "http://localhost:5000";
+// const backendDomin = "http://localhost:5000";
+// const backendDomin = import.meta.env.VITE_REACT_APP_BACKEND_BASEURL;
+const backendDomin = process.env.REACT_APP_BACKEND_URL;
 
 const SummaryApi = {
     signUP : {
