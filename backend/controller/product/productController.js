@@ -4,7 +4,7 @@ const Product = require("../../models/Product");
 
 exports.fetchAndStoreProducts = async (req, res) => {
     try {
-        const response = await axios.get("http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline");
+        const response = await axios.get("https://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline");
 
         const products = response.data;
 
