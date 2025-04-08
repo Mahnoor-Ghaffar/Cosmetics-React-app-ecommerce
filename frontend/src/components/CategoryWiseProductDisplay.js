@@ -170,7 +170,7 @@ const CategoryWiseProductDisplay = ({ category, heading }) => {
                 </h2>
                 <p className='capitalize text-slate-500'>{product?.category}</p>
                 <div className='flex gap-3'>
-                  <p className='text-red-600 font-medium'>
+                  <p className='text-pink-700 font-medium'>
                     {displayINRCurrency(product?.sellingPrice)}
                   </p>
                   <p className='text-slate-500 line-through'>
@@ -178,7 +178,7 @@ const CategoryWiseProductDisplay = ({ category, heading }) => {
                   </p>
                 </div>
                 <button
-                  className='text-sm bg-red-600 hover:bg-red-700 text-white px-3 py-0.5 rounded-full'
+                  className='text-sm bg-pink-700 hover:bg-pink-500 text-white px-3 py-0.5 rounded-full'
                   onClick={(e) => handleAddToCart(e, product?._id)}
                 >
                   Add to Cart

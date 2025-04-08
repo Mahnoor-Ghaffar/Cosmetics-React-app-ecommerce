@@ -9,6 +9,8 @@ import AllUsers from '../pages/AllUsers'
 import AllProducts from '../pages/AllProducts'
 import CategoryList from "../components/CategoryList";
 import ProductDetails from '../pages/ProductDetails'
+import NailPolishDetails from "../pages/NailPolishDetails";
+import MakeupProductDetails from "../pages/MakeupProductDetails";
 
 
 const router = createBrowserRouter([
@@ -39,6 +41,14 @@ const router = createBrowserRouter([
             {
                 path : "product/:id",
                 element : <ProductDetails/>
+            },
+            { 
+                path: "nail-polish/:id",
+                 element: <NailPolishDetails /> 
+            },
+            {
+                path: "/makeup-product/:id",
+                element : <MakeupProductDetails />
             },
             {
                 path : "admin-panel",

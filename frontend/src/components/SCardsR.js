@@ -1,30 +1,37 @@
 import { FaArrowLeft, FaArrowRight, FaHeart, FaStar } from "react-icons/fa";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+import Context from "../context";
 
 function SCardsR() {
   const [products, setProducts] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { fetchUserAddToCart } = useContext(Context);
 
   // Fetch products from the Makeup API
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch(
-        "https://makeup-api.herokuapp.com/api/v1/products.json?product_type=nail_polish"
-      );
-      const data = await response.json();
-      setProducts(data);
+      try {
+        const response = await fetch(
+          "https://makeup-api.herokuapp.com/api/v1/products.json?product_type=nail_polish"
+        );
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
     };
-
     fetchProducts();
   }, []);
 
   // Auto-scroll functionality
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length);
-    },2000); 
-
-    return () => clearInterval(interval); // Clear interval on component unmount
+    if (products.length > 0) {
+      const interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length);
+      }, 2000);
+      return () => clearInterval(interval);
+    }
   }, [products.length]);
 
   const handleNext = () => {
@@ -37,6 +44,15 @@ function SCardsR() {
     setCurrentIndex((prevIndex) =>
       prevIndex > 0 ? prevIndex - 1 : products.length - 1
     );
+  };
+
+  const handleAddToCart = async (e, product) => {
+    e.preventDefault();
+    e.stopPropagation();
+    // In a real app, you would call your backend API here
+    alert(`${product.name} added to cart!`);
+    // await addToCart(e, product.id);
+    // fetchUserAddToCart();
   };
 
   return (
@@ -62,9 +78,10 @@ function SCardsR() {
         style={{ transform: `translateX(-${currentIndex * 300}px)` }}
       >
         {products.map((product, index) => (
-          <div
+          <Link
+            to={`/nail-polish/${product.id}`}
             key={product.id || index}
-            className="w-[310px] h-[600px] flex-shrink-0 border-2 border-pink-700 rounded-lg overflow-hidden m-2"
+            className="w-[310px] h-[600px] flex-shrink-0 border-2 border-pink-700 rounded-lg overflow-hidden m-2 hover:shadow-lg transition"
           >
             <div className="relative">
               <img
@@ -95,11 +112,14 @@ function SCardsR() {
                   {product.rating || "N/A"} ({product.review_count || "0"})
                 </span>
               </div>
-              <button className="px-6 py-3 bg-pink-700 text-white font-semibold rounded-lg hover:bg-white hover:border hover:border-pink-700 hover:text-pink-700 transition">
+              <button 
+                className="px-6 py-3 bg-pink-700 text-white font-semibold rounded-lg hover:bg-white hover:border hover:border-pink-700 hover:text-pink-700 transition"
+                onClick={(e) => handleAddToCart(e, product)}
+              >
                 Add to Cart
               </button>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
@@ -107,8 +127,6 @@ function SCardsR() {
 }
 
 export default SCardsR;
-
-
 
 
 // import { FaArrowLeft, FaArrowRight, FaHeart, FaStar } from "react-icons/fa";
